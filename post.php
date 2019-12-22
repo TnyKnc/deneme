@@ -20,15 +20,19 @@
 </form>
 
 <?php
+//index php sayfasındaki option değerini post ettik.
 if (isset($_POST['submit'])) {
     $getnumber = $_POST['number_values'];
 }
 ?>
 
 <script>
-    var secim = ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"];
-
+    //post ettiğimiz veriyi script içerisinde değişkene atadık.
     var secilen = "<?php echo $getnumber; ?>";
+    
+    //secimleri tanımladık.
+    var secim = ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"];
+    
     //option seçim fonksiyonu
     $(function() {
         $('.mySelect option[value="' + secilen + '"]').prop('selected', true);
