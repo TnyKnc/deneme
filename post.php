@@ -1,5 +1,7 @@
+<html>
+    <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<select class="mySelect">
+<select class="mySelect" id="mySelect" onchange="optionValues()">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -32,7 +34,7 @@ if (isset($_POST['submit'])) {
     
     //secimleri tanımladık.
     var secim = ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"];
-    
+
     //option seçim fonksiyonu
     $(function() {
         $('.mySelect option[value="' + secilen + '"]').prop('selected', true);
@@ -40,4 +42,15 @@ if (isset($_POST['submit'])) {
         document.getElementById(secim[secilen - 1]).checked = true;
         document.getElementById(secim[(secilen - 1) + 3]).checked = true;
     });
+
+    //option değişim durumu
+    function optionValues() {
+        var x = document.getElementById("mySelect").value;
+        
+        document.getElementById(secim[x - 1]).checked = true;
+        document.getElementById(secim[(x - 1) + 3]).checked = true;
+    }
 </script>
+
+    </body>
+</html>
